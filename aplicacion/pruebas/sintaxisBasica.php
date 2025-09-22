@@ -2,8 +2,12 @@
 include_once(dirname(__FILE__) . "/../../cabecera.php");
 //Controlador
 $var = 12;
-error_reporting(E_ALL); 
-$var++;
+
+#Si existe o no existe es como un if y else 
+if (isset($Var))
+    $Var++;
+
+unset($var++);
 
 //Dibuja la plantilla de la vista 
 inicioCabecera("2DAW APLICACION");
