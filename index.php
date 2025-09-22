@@ -1,13 +1,32 @@
-hola
-<?php 
-    $numero = 15;
-    
-    echo $numero." ";
+<?php
+include_once(dirname(__FILE__) . "/cabecera.php");
+//Controlador
 
-    $numero ++;
-    $suma = $numero + $numero+1;
-        if($suma>25)
-            echo  " "."mayor"." ";
-   // phpinfo();
+
+//Dibuja la plantilla de la vista 
+inicioCabecera("APLICACION PRUEBA");
+cabecera();
+finCabecera();
+
+inicioCuerpo("APLICACION PRUEBA");
+cuerpo();
+finCuerpo();
+
+
+
+// **********************************************************
+
+//Vista
+function cabecera() {}
+
+//Vista
+function cuerpo()
+{
 ?>
-adios
+
+    <a href="/aplicacion/articulos/verArticulos.php"> Ver
+        articulos</a><br>
+
+<?php
+
+}
