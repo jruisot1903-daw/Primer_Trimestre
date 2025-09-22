@@ -32,7 +32,7 @@ function inicioCabecera(String $titulo)
         <meta name="viewport" content="width=device-width; initialscale=1.0">
         <!-- Replace favicon.ico & apple-touch-icon.png in the root
 of your domain and delete these references -->
-        <link rel="shortcut icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
         <link rel="stylesheet" type="text/css"
@@ -63,6 +63,7 @@ function inicioCuerpo(String $cabecera)
             <div id="barraMenu">
                 <ul>
                     <li><a href="/index.php">Inicio</a></li>
+                    <li><a href="/aplicacion/pruebas/index.php">Pruebas</a></li>
                 </ul>
             </div>
 

@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . "/cabecera.php");
+include_once(dirname(__FILE__) . "/../../cabecera.php");
 //Controlador
 
 
@@ -23,7 +23,7 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    Hola estas en index.php 
+    Estas en sintaxisBasica
 <?php
 
 }
