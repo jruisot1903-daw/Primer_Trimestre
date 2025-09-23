@@ -4,10 +4,10 @@ include_once(dirname(__FILE__) . "/../../cabecera.php");
 $var = 12;
 
 #Si existe o no existe es como un if y else 
-if (isset($Var))
-    $Var++;
+if (isset($var))
+    $var++;
 
-unset($var++);
+unset($var);
 
 //Dibuja la plantilla de la vista 
 inicioCabecera("2DAW APLICACION");
