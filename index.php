@@ -8,7 +8,7 @@ inicioCabecera("2DAW APLICACION");
 cabecera();
 finCabecera();
 
-inicioCuerpo("APLICACION PRUEBA");
+inicioCuerpo("APLICACION DE PRUEBA");
 cuerpo(); //llamo a la vista
 finCuerpo();
 

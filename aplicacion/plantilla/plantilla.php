@@ -34,7 +34,6 @@ function inicioCabecera(String $titulo)
 of your domain and delete these references -->
         <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
         <link rel="stylesheet" type="text/css"
             href="/estilos/base.css">
     <?php
@@ -61,7 +60,7 @@ function inicioCuerpo(String $cabecera)
 
             </div>
             <div id="barraMenu">
-                <ul>
+                <ul> 
                     <li><a href="/index.php">Inicio</a></li>
                     <li><a href="/aplicacion/pruebas/index.php">Pruebas</a></li>
                 </ul>
