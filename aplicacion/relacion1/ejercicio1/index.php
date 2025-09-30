@@ -71,8 +71,8 @@ function cuerpo()
 $binario = 0b1010;     
 $octal   = 012;       
 $hexa    = 0xA;      
-
-echo "</br>Valor binario: 0b1010 = " . $binario . " en decimal";
+echo "<h3>Definir enteros en diferentes formatos y mostrarlos</h3>";
+echo "Valor binario: 0b1010 = " . $binario . " en decimal";
 echo "</br>Valor octal: 012 = " . $octal . " en decimal";
 echo "</br>Valor hexadecimal: 0xA = " . $hexa . " en decimal";
 
