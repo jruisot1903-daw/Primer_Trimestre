@@ -50,8 +50,11 @@ $num = (double) $num; // es como si lo hicieramos en java
 settype($num,"string");
 $num = intval($num);
 
-if($num)
-    $num=0;
+if($num>1){
+    $resultado = "todo correcto";
+    $cadena = "ok";
+}
+$sum = 10;
 
 //Dibuja la plantilla de la vista 
 inicioCabecera("2DAW APLICACION");
