@@ -33,6 +33,7 @@ function cuerpo()
                             <li><a href="/aplicacion/relacion1/ejercicio3/index.php">3º apartado</a></li>
                             <li><a href="/aplicacion/relacion1/ejercicio4/index.php">4º apartado</a></li>
                             <li><a href="/aplicacion/relacion1/ejercicio5/index.php">5º apartado</a></li>
+                            <li><a href="/aplicacion/relacion1/ejercicio6/index.php">6º apartado</a></li>
                         </ul>
                 
                 </li>
