@@ -8,7 +8,7 @@ inicioCabecera("2DAW APLICACION");
 cabecera();
 finCabecera();
 
-inicioCuerpo("APLICACION DE PRUEBA");
+inicioCuerpo("Prueba de Arrays");
 cuerpo(); //llamo a la vista
 finCuerpo();
 
@@ -23,11 +23,7 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    Estas en pruebas
-    <br>
-    <a href="./sintaxisBasica.php">Sintaxisbasica</a>
-    <br>
-    <a href="./arrays.php">Prueba Arrays</a>
+    
 <?php
 
 }

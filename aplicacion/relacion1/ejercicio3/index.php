@@ -36,6 +36,17 @@ $array3 = [
     34 
 ]; // añadiendole el valor al array con una sola sentencia con []
 
+function mostrarArray($arr, $nombre) { // le he implementado que a la funcion le pasemos el nombre en este caso es el titutlo de cada array de como esta hecho
+    echo "<h3>$nombre</h3>";
+    foreach ($arr as $clave => $valor) {
+        if (is_array($valor)) { // is_array lo utilizamos para cada dato del array comprobar si es un dato cualquiera o si es otro array
+            echo "$clave => [ " . implode(", ", $valor) . " ]<br>"; 
+            // utilizamos implode para pasar el array en una cadena de texto y le ponemos el separador de sus elementos en este caso una ,
+        } else {
+            echo "$clave => $valor<br>";
+        }
+    }
+}
 //Dibuja la plantilla de la vista 
 inicioCabecera("2DAW APLICACION");
 cabecera();
@@ -60,16 +71,4 @@ function cuerpo()
     mostrarArray($array2, "Array2 (array())");
     mostrarArray($array3, "Array3 ([])");
     //llamamos a cada uno de los arrays a la funcion 
-}
-
-function mostrarArray($arr, $nombre) { // le he implementado que a la funcion le pasemos el nombre en este caso es el titutlo de cada array de como esta hecho
-    echo "<h3>$nombre</h3>";
-    foreach ($arr as $clave => $valor) {
-        if (is_array($valor)) { // is_array lo utilizamos para cada dato del array comprobar si es un dato cualquiera o si es otro array
-            echo "$clave => [ " . implode(", ", $valor) . " ]<br>"; 
-            // utilizamos implode para pasar el array en una cadena de texto y le ponemos el separador de sus elementos en este caso una ,
-        } else {
-            echo "$clave => $valor<br>";
-        }
-    }
 }
