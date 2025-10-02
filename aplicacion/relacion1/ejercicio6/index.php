@@ -4,6 +4,9 @@ include_once(dirname(__FILE__) . "/../../../cabecera.php");
 
 $vector=array("primera" =>12.56, 24=>true, 67 =>23.76);
 
+$claves = array_keys($vector); 
+$valores = array_values($vector);
+
 //Dibuja la plantilla de la vista 
 inicioCabecera("2DAW APLICACION");
 cabecera();
@@ -23,6 +26,19 @@ function cabecera() {}
 //Vista
 function cuerpo()
 {
-   global $vector;
-    
+   global $vector,$claves,$valores;
+   echo "<h3>Simulando Foreach</h3>";
+   array_walk($vector, function($value, $key) {
+      echo "Clave: $key, Valor: $value<br>";
+   });
+
+   echo "<h3>Claves del array</h3>";
+   array_walk($claves, function($value){
+      echo "Claves: ".$value."<br>";
+   });
+
+   echo "<h3>Valor del array</h3>";
+   array_walk($valores, function($key){
+      echo "Claves: ".$key."<br>";
+   });
 }
