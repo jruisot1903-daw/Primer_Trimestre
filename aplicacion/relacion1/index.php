@@ -25,7 +25,6 @@ function cuerpo()
 ?>
     <div id="barraMenu">
                 <ul> 
-                    <li><a href="/index.php">Inicio</a></li>
                     <li>Ejercicios
                         <ul>
                             <li><a href="/aplicacion/relacion1/ejercicio1"> 1º apartado</a></li>

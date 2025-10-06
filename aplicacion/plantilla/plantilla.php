@@ -34,8 +34,7 @@ function inicioCabecera(String $titulo)
 of your domain and delete these references -->
         <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <link rel="stylesheet" type="text/css"
-            href="/estilos/base.css">
+        <link rel="stylesheet" type="text/css" href="/estilos/base.css">
     <?php
 }
 function finCabecera()
@@ -84,7 +83,7 @@ function inicioCuerpo(String $cabecera)
                         $label = prettyLabel($seg);
                         $esUltimo = ($i === $total - 1);
 
-                        echo '<span class="sep"> ›› </span>';
+                        echo '<span class="sep">››</span>';
                         if ($esUltimo) {
                             echo '<span aria-current="page">' . $label . '</span>';
                         } else {

@@ -12,10 +12,9 @@ body {
 }
 
 #documento {
-    margin: 0 auto;
+    margin: 2% auto;
     background-color: #9f66e9;
-    
-    width: 700px;
+    width: 90%;
     border-radius: 10px;
     padding: 10px;
     border: 3px solid black;
@@ -107,11 +106,12 @@ body {
 }
 .barraUbi {
             font: 14px system-ui;
-
+            margin: 1rem 0;
         }
 
-        .barraUbi a {
+        .barraUbi a:focus{
             text-decoration: none;
+             color: #e639e6;
         }
 
         .barraUbi a:hover {
@@ -127,3 +127,61 @@ body {
             font-weight: 600;
             cursor: default;
         }
+
+
+#barraMenu{
+    border-top: 2px solid white;
+}
+
+#barraMenu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+#barraMenu > ul > li {
+  position: relative;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-weight: bold;
+  color : rgb(85, 26, 139);
+  transition: 0.3s;
+}
+#barraMenu > ul > li:hover {
+  background: #a44aee;
+}
+#barraMenu ul ul {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background: #9f66e9;
+  border: 1px solid #ccc;
+  min-width: 180px;
+  flex-direction: column;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+#barraMenu li:hover ul {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+#barraMenu ul ul li {
+  padding: 12px 20px;
+  color: #FFFFFF;
+}
+#barraMenu ul ul li:hover {
+   background: #a44aee;
+
+}
+
+#barraMenu a:focus{
+   color: #e639e6;
+
+}
+
+a:focus{
+     color: #e639e6;
+}
