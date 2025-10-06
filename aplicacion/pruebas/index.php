@@ -25,9 +25,9 @@ function cuerpo()
 ?>
     Estas en pruebas
     <br>
-    <a href="./sintaxisBasica.php">Sintaxisbasica</a>
+    <a href="/aplicacion/pruebas/sintaxisBasica.php">Sintaxisbasica</a>
     <br>
-    <a href="./arrays.php">Prueba Arrays</a>
+    <a href="/aplicacion/pruebas/arrays.php">Prueba Arrays</a>
 <?php
 
 }

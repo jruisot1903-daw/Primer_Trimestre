@@ -4,11 +4,11 @@ include_once(dirname(__FILE__) . "/cabecera.php");
 
 
 //Dibuja la plantilla de la vista 
-inicioCabecera("2DAW APLICACION");
+inicioCabecera("2DAW Ejercicios");
 cabecera();
 finCabecera();
 
-inicioCuerpo("APLICACION DE PRUEBA");
+inicioCuerpo("EJERCICIOS");
 cuerpo(); //llamo a la vista
 finCuerpo();
 

@@ -44,9 +44,19 @@ function finCabecera()
     </head>
 <?php
 }
+function prettyLabel(string $seg): string
+{
+    $label = urldecode($seg);
+    $label = str_replace(['-', '_'], ' ', $label);
+    return htmlspecialchars(mb_convert_case($label, MB_CASE_TITLE, "UTF-8"), ENT_QUOTES, 'UTF-8');
+}
 function inicioCuerpo(String $cabecera)
 {
+
     global $acceso;
+    $url = $_SERVER['REQUEST_URI'];
+    $path = parse_url($url, PHP_URL_PATH);
+    $partes = array_values(array_filter(explode("/", trim($path))));
 ?>
 
     <body>
@@ -54,16 +64,45 @@ function inicioCuerpo(String $cabecera)
 
             <header>
                 <h1 id="titulo"><?php echo $cabecera; ?></h1>
+
+                <nav class="barraUbi" aria-label="Ruta de navegación">
+                    <?php
+                    $partes = array_filter($partes, fn ($v) => $v !== 'index.php');
+                    $total = count($partes);
+
+                    if ($total == 0) {
+                        echo '<span aria-current="page">Inicio</span>';
+                    } else {
+                        echo '<a href="/">Inicio</a>';
+                    }
+
+                    $acumulado = "";
+
+                    foreach ($partes as $i => $seg) {
+                        $acumulado .= '/' . $seg;
+                        $href = htmlspecialchars($acumulado . '/', ENT_QUOTES, 'UTF-8');
+                        $label = prettyLabel($seg);
+                        $esUltimo = ($i === $total - 1);
+
+                        echo '<span class="sep"> ›› </span>';
+                        if ($esUltimo) {
+                            echo '<span aria-current="page">' . $label . '</span>';
+                        } else {
+                            echo '<a href="' . $href . '">' . $label . '</a>';
+                        }
+                    }
+                    ?>
+                </nav>
             </header>
 
             <div id="barraLogin">
 
             </div>
             <div id="barraMenu">
-                <ul> 
-                    <li><a href="/index.php">Inicio</a></li>
-                    <li><a href="/aplicacion/pruebas/index.php">Pruebas</a></li>
-                    <li><a href="/aplicacion/relacion1/index.php">Relacion1</a></li>
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/aplicacion/pruebas">Pruebas</a></li>
+                    <li><a href="/aplicacion/relacion1">Relacion1</a></li>
                 </ul>
             </div>
 
@@ -79,7 +118,7 @@ function inicioCuerpo(String $cabecera)
             <footer>
                 <hr width="90%" />
                 <div>
-                    &copy; Copyright by 2DAW 2025
+                    &copy; Copyright by Javier Ruiz 2025
                 </div>
             </footer>
         </div>
@@ -87,4 +126,4 @@ function inicioCuerpo(String $cabecera)
 
     </html>
 <?php
-}
+        }

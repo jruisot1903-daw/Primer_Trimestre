@@ -1,4 +1,10 @@
 @charset "UTF8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 body {
     background-color: rgba(6, 23, 255, 0.63);
@@ -8,6 +14,7 @@ body {
 #documento {
     margin: 0 auto;
     background-color: #9f66e9;
+    
     width: 700px;
     border-radius: 10px;
     padding: 10px;
@@ -98,3 +105,25 @@ body {
     border: thin solid red;
     padding: 5px;
 }
+.barraUbi {
+            font: 14px system-ui;
+
+        }
+
+        .barraUbi a {
+            text-decoration: none;
+        }
+
+        .barraUbi a:hover {
+            text-decoration: underline;
+        }
+
+        .barraUbi .sep {
+            margin: 1rem;
+            opacity: .6;
+        }
+
+        .barraUbi [aria-current="page"] {
+            font-weight: 600;
+            cursor: default;
+        }
