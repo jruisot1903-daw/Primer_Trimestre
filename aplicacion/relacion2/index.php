@@ -8,7 +8,7 @@ inicioCabecera("2DAW APLICACION");
 cabecera();
 finCabecera();
 
-inicioCuerpo("Relacion 1");
+inicioCuerpo("Relacion 2");
 cuerpo(); //llamo a la vista
 finCuerpo();
 

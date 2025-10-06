@@ -195,8 +195,10 @@ body {
 a:focus {
     color: #FFD700;
 }
-
-
+a {
+    color: #FF3CAC; 
+    text-decoration: none;
+}
 a:visited {
     color: #FF3CAC; 
 }
