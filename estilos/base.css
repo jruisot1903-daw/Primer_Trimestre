@@ -7,24 +7,24 @@
 }
 
 body {
-    background-color: #121212;
+    background-color: #f5f5f5;
     font-size: 16px;
-    color: #E0E0E0;
+    color: #333333;
 }
 
 #documento {
     margin: 2% auto;
-    background-color: #1E1E2F;
+    background-color: #ffffff;
     width: 90%;
     border-radius: 10px;
     padding: 10px;
-    border: 3px solid #FF3CAC;
+    border: 2px solid #cccccc;
 }
 
 #cabecera {
-    background-color: #00FFC6;
+    background-color: #eaeaea;
     padding: 5px;
-    color: #121212;
+    color: #333333;
 }
 
 #cabecera #logo {
@@ -35,12 +35,12 @@ body {
 #cabecera #titulo {
     font-size: 1.3em;
     font-style: italic;
-    color: #121212;
+    color: #333333;
 }
 
 .boton {
-    background-color: #FF3CAC;
-    color: #121212;
+    background-color: #333333;
+    color: #ffffff;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
@@ -49,80 +49,80 @@ body {
 
 .boton a {
     text-decoration: none;
-    color: #121212;
+    color: #ffffff;
 }
 
 .boton a:visited {
     text-decoration: none;
-    color: #121212;
+    color: #ffffff;
 }
 
 .boton a:hover,
 .boton:hover {
-    background-color: #FFD700;
-    color: #121212;
+    background-color: #555555;
+    color: #ffffff;
 }
 
 .tabla {
     width: 100%;
     border-collapse: collapse;
     border: none;
-    background-color: #1E1E2F;
+    background-color: #ffffff;
 }
 
 .tabla th {
-    background-color: #FF3CAC;
-    color: #121212;
+    background-color: #eaeaea;
+    color: #333333;
 }
 
 .tabla tr.par {
-    background-color: #2A2A3D;
-    color: #E0E0E0;
+    background-color: #f0f0f0;
+    color: #333333;
 }
 
 .tabla tr.impar {
-    background-color: #1E1E2F;
-    color: #E0E0E0;
+    background-color: #ffffff;
+    color: #333333;
 }
 
 #pie {
-    background-color: #00FFC6;
-    color: #121212;
+    background-color: #eaeaea;
+    color: #333333;
     font-size: 1.2em;
     padding: 5px;
     text-align: center;
 }
 
 .for_texto {
-    border: 2px solid #FF3CAC;
-    background-color: #1E1E2F;
+    border: 2px solid #cccccc;
+    background-color: #ffffff;
     padding: 2px;
     margin: 2px;
     border-radius: 4px;
-    color: #E0E0E0;
+    color: #333333;
 }
 
 .error {
-    background-color: #1E1E2F;
-    color: #FF3CAC;
-    border: 2px solid #FF3CAC;
+    background-color: #ffffff;
+    color: #cc0000;
+    border: 2px solid #cc0000;
     padding: 5px;
 }
 
 .barraUbi {
     font: 14px system-ui;
     margin: 1rem 0;
-    color: #E0E0E0;
+    color: #333333;
 }
 
 .barraUbi a:focus {
     text-decoration: none;
-    color: #FFD700;
+    color: #000000;
 }
 
 .barraUbi a:hover {
     text-decoration: underline;
-    color: #FFD700;;
+    color: #000000;
 }
 
 .barraUbi .sep {
@@ -133,11 +133,11 @@ body {
 .barraUbi [aria-current="page"] {
     font-weight: 600;
     cursor: default;
-    color: #FFD700;
+    color: #000000;
 }
 
 #barraMenu {
-    border-top: 2px solid #FF3CAC;
+    border-top: 2px solid #cccccc;
 }
 
 #barraMenu ul {
@@ -151,13 +151,13 @@ body {
     padding: 15px 25px;
     cursor: pointer;
     font-weight: bold;
-    color: #FFD700;
+    color: #333333;
     transition: 0.3s;
 }
 
 #barraMenu > ul > li:hover {
-    background: #bd2d7fb7;
-    color: #FFD700;
+    background: #e0e0e0;
+    color: #000000;
 }
 
 #barraMenu ul ul {
@@ -165,8 +165,8 @@ body {
     position: absolute;
     top: 50px;
     left: 0;
-    background: #1E1E2F;
-    border: 1px solid #FF3CAC;
+    background: #ffffff;
+    border: 1px solid #cccccc;
     min-width: 180px;
     flex-direction: column;
     z-index: 99;
@@ -183,32 +183,34 @@ body {
 
 #barraMenu ul ul li {
     padding: 12px 20px;
-    color: #E0E0E0;
+    color: #333333;
 }
 
 #barraMenu ul ul li:hover {
-   background: #bd2d7fb7;
-    color: #121212;
+    background: #e0e0e0;
+    color: #000000;
 }
 
-#barraMenu a:focus,
-a:focus {
-    color: #FFD700;
+#barraMenu a:focus {
+    color: #000000;
 }
+
 a {
-    color: #FF3CAC; 
+    color: #333333;
+    background-color: #5555555b;
     text-decoration: none;
 }
+
 a:visited {
-    color: #FF3CAC; 
+    color: #333333;
 }
 
 a:hover {
-    color: #FFD700; 
+    color: #000000;
     text-decoration: underline;
 }
 
 a:focus {
-    color: #FFD700;
+    color: #000000;
     outline: none;
 }

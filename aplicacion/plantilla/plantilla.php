@@ -118,7 +118,7 @@ function inicioCuerpo(String $cabecera)
             <footer>
                 <hr width="90%" />
                 <div>
-                    &copy; Copyright by Javier Ruiz 2025
+                    &copy; Copyright by Javier Ruiz Soto - 2DAW
                 </div>
             </footer>
         </div>
