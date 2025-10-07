@@ -23,11 +23,10 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    Estas en pruebas
     <br>
-    <a href="/aplicacion/pruebas/sintaxisBasica.php">Sintaxisbasica</a>
+    <a href="/aplicacion/pruebas/sintaxisBasica.php" class="prueba">Sintaxisbasica</a>
     <br>
-    <a href="/aplicacion/pruebas/arrays.php">Prueba Arrays</a>
+    <a href="/aplicacion/pruebas/arrays.php" class="prueba">Prueba Arrays</a>
 <?php
 
 }
