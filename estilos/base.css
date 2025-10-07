@@ -197,7 +197,6 @@ body {
 
 a {
     color: #333333;
-    background-color: #5555555b;
     text-decoration: none;
 }
 
@@ -213,4 +212,10 @@ a:hover {
 a:focus {
     color: #000000;
     outline: none;
+}
+
+.prueba {
+    background-color: #3333332d;
+    color: #ffffff;
+    text-decoration: none;
 }
