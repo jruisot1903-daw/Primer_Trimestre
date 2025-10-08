@@ -74,6 +74,8 @@ foreach ($array_texto as $index => $char) {
         } else {
             $texto_char = mb_strtolower(mb_substr($texto, $i, 1));
         }
-        echo str_repeat("&nbsp", mb_strlen($texto) - 1 - $i) . mb_substr($texto, $i, 1) . "<br>";
+        echo str_repeat("&nbsp", mb_strlen($texto) - 1 - $i) . $texto_char . "<br>";
+        
+        //echo str_repeat("&nbsp", mb_strlen($texto) - 1 - $i) . mb_substr($texto, $i, 1) . "<br>";
     }
 }
