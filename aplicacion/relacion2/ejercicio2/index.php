@@ -75,7 +75,25 @@ foreach ($array_texto as $index => $char) {
             $texto_char = mb_strtolower(mb_substr($texto, $i, 1));
         }
         echo str_repeat("&nbsp", mb_strlen($texto) - 1 - $i) . $texto_char . "<br>";
-        
-        //echo str_repeat("&nbsp", mb_strlen($texto) - 1 - $i) . mb_substr($texto, $i, 1) . "<br>";
     }
+
+    echo "<br> <h3>Separar la cadena utilizando la letra 'a' </h3>";
+
+    $partes = explode("a", $texto); 
+// explode busca hasta el caracter que le pones dentro de la cadena que quieras y te lo guarda cada parte en un array
+
+    foreach ($partes as $clave => $valor) {
+        echo "<br> Parte $clave: $valor <br>";
+    }
+
+    echo "<br><h3>Cambiar la palabra niña y ponerle niña/mujer</h3><br>";
+
+    $palabraBuscar = "niña";
+    $palabraRemplazar = "niña/mujer";
+
+    echo "<br>La cadena sin modificar : ".$texto."<br>";
+
+    $cadenaMod = str_replace($palabraBuscar,$palabraRemplazar,$texto);
+
+    echo "<br>La cadena modificada : ".$cadenaMod."<br>";
 }

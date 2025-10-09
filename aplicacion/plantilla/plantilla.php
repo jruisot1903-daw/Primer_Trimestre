@@ -66,7 +66,7 @@ function inicioCuerpo(String $cabecera)
 
                 <nav class="barraUbi" aria-label="Ruta de navegación">
                     <?php
-                    $partes = array_filter($partes, fn ($v) => $v !== 'index.php');
+                    $partes = array_filter($partes, fn($v) => $v !== 'index.php');
                     $total = count($partes);
 
                     if ($total == 0) {
