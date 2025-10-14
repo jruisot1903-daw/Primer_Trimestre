@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . "/../../../cabecera.php");
+include_once(dirname(__FILE__) . "/../../../../cabecera.php");
 //Controlador
 
 $vector=array("primera" =>12.56, 24=>true, 67 =>23.76);

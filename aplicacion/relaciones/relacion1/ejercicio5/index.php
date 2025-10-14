@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . "/../../../cabecera.php");
+include_once(dirname(__FILE__) . "/../../../../cabecera.php");
 //Controlador
 $vector = array();
 $vector[1] = "esto es una cadena";

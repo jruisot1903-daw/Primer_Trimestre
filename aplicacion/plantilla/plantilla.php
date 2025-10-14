@@ -101,8 +101,7 @@ function inicioCuerpo(String $cabecera)
                 <ul>
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/aplicacion/pruebas">Pruebas</a></li>
-                    <li><a href="/aplicacion/relacion1">Relacion1</a></li>
-                    <li><a href="/aplicacion/relacion2">Relacion2</a></li>
+                    <li><a href="/aplicacion/relaciones">Relaciones</a></li>
                 </ul>
             </div>
 

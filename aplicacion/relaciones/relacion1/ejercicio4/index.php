@@ -1,5 +1,5 @@
 <?php
-include_once(dirname(__FILE__) . "/../../../cabecera.php");
+include_once(dirname(__FILE__) . "/../../../../cabecera.php");
 //Controlador
 
 $filas = 5; // inicializamos las filas con su valor
