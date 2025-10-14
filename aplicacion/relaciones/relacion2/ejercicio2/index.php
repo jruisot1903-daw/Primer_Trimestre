@@ -88,12 +88,12 @@ foreach ($array_texto as $index => $char) {
 
     echo "<br><h3>Cambiar la palabra niña y ponerle niña/mujer</h3><br>";
 
-    $palabraBuscar = "niña";
-    $palabraRemplazar = "niña/mujer";
-
-    echo "<br>La cadena sin modificar : ".$texto."<br>";
-
-    $cadenaMod = str_replace($palabraBuscar,$palabraRemplazar,$texto);
-
-    echo "<br>La cadena modificada : ".$cadenaMod."<br>";
+    $posNina = mb_strpos($texto,"niña");
+    if ($posNina == false){
+        echo "niña no se encuentra";
+    }else
+        $posiEs = $posNina+mb_strlen("niña");
+        $cadena1 = mb_substr($texto,0,$posiEs) . "/mujer". mb_substr($texto,$posiEs+1);
+        
+        echo "<br> $cadena1";
 }
