@@ -74,3 +74,44 @@ function devuelve(&$num, $num2 = 1 , $num3 = 10){
         $num = $valor + $num2 + $num3; 
     return $valor * $num2 * $num3;
 }
+
+//Ejercicio5
+
+function suma($a, $b) {
+    return $a + $b;
+}
+
+function resta($a, $b) {
+    return $a - $b;
+}
+
+function multiplicacion($a, $b) {
+    return $a * $b;
+}
+
+// Función principal que usa una variable-función
+function hacerOperacion($operacion, $num1, $num2) {
+    // Comprobamos si la operación es válida
+    if (!in_array($operacion, ['suma', 'resta', 'multiplicacion'])) {
+        return false; 
+    }
+    // Creamos una variable que "apunta" a la función
+    $funcion = $operacion;
+    // Llamamos a la función correspondiente usando la variable
+    return $funcion($num1, $num2);
+}
+
+//Ejercicio6
+
+function llamadaAFuncion(int $a, int $b, callable $callback): int {
+    return $callback($a, $b);
+}
+
+//Ejercicio7
+function ordenar(array &$vector): void {
+    // Ordenamos el array usando una función anónima como callback
+    usort($vector, function($a, $b) {
+        // Compara la longitud de las cadenas de forma descendente
+        return strlen($b) <=> strlen($a);
+    });
+}
