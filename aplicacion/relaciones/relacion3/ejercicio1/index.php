@@ -1,15 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . "/../../../../cabecera.php");
+include_once(dirname(__FILE__) . "/../libreria.php");
 //Controlador
-function generarCadena($cadenaPer,$lon){
-     $longitud_cad = strlen($cadenaPer);
-    $cadena_Ale = '';
-    for($i = 0; $i < $lon; $i++) {
-        $caracter_random = $cadenaPer[mt_rand(0, $longitud_cad - 1)];
-        $cadena_Ale .= $caracter_random;
-    }
-    return $cadena_Ale;
-}
+
 
 
 //Dibuja la plantilla de la vista 
@@ -31,5 +24,25 @@ function cabecera() {}
 //Vista
 function cuerpo()
 {
-    
+    $vector = array();
+    $numero = 0;
+
+   if (cuentaVeces($vector,"1osición",7,$numero)) {
+    echo "<h3>Llamada número:$numero</h3>";
+    foreach($vector as $key => $value)
+        echo"<br>Clave: $key => valor: $value<br>";
+} else {
+    echo "Error al poner la clave , No se admiten el nombre de '2daw' ni primera ";
+}
+
+if (cuentaVeces($vector,"otra",2,$numero)) {
+    echo "<h3>Llamada número:$numero</h3>";
+    foreach($vector as $key => $value)
+        echo"<br>Clave: $key => valor: $value";
+} else {
+    echo "Error al poner la clave , No se admiten el nombre de '2daw' ni primera ";
+}
+
+
+
 }
