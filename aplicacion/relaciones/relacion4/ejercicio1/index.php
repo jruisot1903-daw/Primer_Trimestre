@@ -22,11 +22,12 @@ function cabecera() {}
 //Vista
 function cuerpo()
 {
-    $objt1 = new InstrumentoBase("Maracas",20);
+    echo "<h3>Esta abstracto los metodos</h3>";
+   /* $objt1 = new InstrumentoBase("Maracas",20);
     $objt2 = new InstrumentoBase("Maracas",21);
     
     echo "<h1>Prueba InstrumentosBase</h1><br>";
     echo "$objt1";
-    echo "$objt2";
+    echo "$objt2";*/
 
 }

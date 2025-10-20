@@ -8,7 +8,7 @@ inicioCabecera("2DAW APLICACION");
 cabecera();
 finCabecera();
 
-inicioCuerpo("Relacion 4 - Ejercicio2");
+inicioCuerpo("Relacion 4 - Ejercicio3");
 cuerpo(); //llamo a la vista
 finCuerpo();
 
@@ -22,6 +22,11 @@ function cabecera() {}
 //Vista
 function cuerpo()
 {
-  echo "En el ejercicio 2 no tenemos nada que mostrar por la interfaz";
+    $InstrViento = new InstrumentoViento("metal", 20);
 
+    echo $InstrViento; 
+    echo "<br>";
+    echo $InstrViento->sonido();
+    echo "<br>";
+    echo $InstrViento->afinar();
 }

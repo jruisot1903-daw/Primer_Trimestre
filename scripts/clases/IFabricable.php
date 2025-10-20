@@ -1,15 +1,8 @@
 <?php
+interface IFabricable {
 
-class IFabricable{
+    public function metodoFabricacion();
 
-//Metodos
-
-public function metodoFabricacion(){
-    return "Los pasos para fabricar x elemento";
+    public function metodoReciclado();
 }
-
-public function metodoReciclao(){
-    
-}
-
-}
+?>

@@ -6,7 +6,7 @@ abstract class InstrumentoBase{
 
 
     //Declaracion cont de cuantos se han crado
-    public static int $cont = 0; // tenemos que volverlo statica ya que sera la que lleve la cuenta global
+    protected static int $cont = 0; // tenemos que volverlo statica ya que sera la que lleve la cuenta global
     public int $instancia = 0; 
     //Vamos a crearle el constructor
 
