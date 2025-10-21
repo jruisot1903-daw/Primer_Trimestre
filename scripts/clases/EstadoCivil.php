@@ -17,10 +17,10 @@ enum EstadoCivil: int {
 
    public function valor(): string {
         return match($this) {
-            self::soltero => 10,
-            self::pareja => 20,
-            self::casado => 30,
-            self::viudo => 40,
+            self::soltero => value,
+            self::pareja => value,
+            self::casado => value,
+            self::viudo => value,
         };
     }
 
