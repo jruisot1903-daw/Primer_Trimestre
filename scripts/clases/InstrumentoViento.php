@@ -22,6 +22,6 @@ class InstrumentoViento extends InstrumentoBase{
 
     //  toString
     public function __toString(): string {
-        return parent::__toString() . "Instrumento de material " . $this->_material . "<br>";
+        return parent::__toString() . "Material: " . $this->_material . "<br>";
     }
 }

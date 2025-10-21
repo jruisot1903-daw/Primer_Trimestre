@@ -30,6 +30,7 @@ function cuerpo()
                             <li><a href="/aplicacion/relaciones/relacion4/ejercicio1">1º apartado</a></li>
                            <li><a href="/aplicacion/relaciones/relacion4/ejercicio2">2º apartado</a></li>
                            <li><a href="/aplicacion/relaciones/relacion4/ejercicio3">3º apartado</a></li>
+                           <li><a href="/aplicacion/relaciones/relacion4/ejercicio4">4º apartado</a></li>
                         </ul>
                 
                     </li>
