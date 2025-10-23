@@ -101,6 +101,6 @@ class Persona{
     // Metodo toString
 
     public function __toString() : String{
-        return  "$this->_nombre es una persona {$this->_estadocivil->descripcion()}(a) nacida el {$this->_fecha_nacimiento} y que vive en {$this->_localidad}";
+        return  "$this->_nombre su estadocivil es {$this->_estadocivil->descripcion()}(a) nacida el {$this->_fecha_nacimiento} y que vive en {$this->_localidad}";
     }
 }
