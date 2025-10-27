@@ -31,6 +31,7 @@ function cuerpo()
                             <li><a href="/aplicacion/relaciones/relacion2">Relacion2</a></li>
                             <li><a href="/aplicacion/relaciones/relacion3">Relacion3</a></li>
                             <li><a href="/aplicacion/relaciones/relacion4">Relacion4</a></li>
+                            <li><a href="/aplicacion/relaciones/relacion5">Relacion5</a></li>
                         </ul>
                 
                 </li>
