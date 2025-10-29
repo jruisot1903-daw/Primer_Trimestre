@@ -5,9 +5,9 @@
 function validaEntero(int &$var, int $min, int $max, int $defecto): bool
 {  // creamos un array con los valores maximos y los minimos , para comprobar posteriormente si el numero esta entre ellos 
     $option = array(
-        'option' => array(
-            'rango_min' => $min,
-            'rango_max' => $max,
+        'options' => array(
+            'min_range' => $min,
+            'max_range' => $max,
         )
     );
 
@@ -22,9 +22,9 @@ function validaEntero(int &$var, int $min, int $max, int $defecto): bool
 function validaReal(float &$var, float $min, float $max, float $defecto): bool
 {
     $option = array(
-        'option' => array(
-            'rango_min' => $min,
-            'rango_max' => $max,
+        'options' => array(
+            'min_range' => $min,
+            'max_range' => $max,
         )
     );
 

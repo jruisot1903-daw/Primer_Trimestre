@@ -222,3 +222,7 @@ a:focus {
     color: #ffffff;
     text-decoration: none;
 }
+
+footer{
+    align-items: center;
+}
