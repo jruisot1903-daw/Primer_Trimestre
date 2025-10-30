@@ -1,32 +1,34 @@
 <?php
 include_once(dirname(__FILE__) . "/../../cabecera.php");
-//Controlador
+//controlador
 
 
-//Dibuja la plantilla de la vista 
-inicioCabecera("2DAW APLICACION");
+
+
+//dibuja la plantilla de la vista
+inicioCabecera("pruebas");
 cabecera();
 finCabecera();
-
-inicioCuerpo("APLICACION DE PRUEBA");
-cuerpo(); //llamo a la vista
+inicioCuerpo("2DAW APLICACION");
+cuerpo();  //llamo a la vista
 finCuerpo();
-
-
-
 // **********************************************************
 
-//Vista
-function cabecera() {}
+//vista
+function cabecera() 
+{}
 
-//Vista
+//vista
 function cuerpo()
 {
 ?>
-    <br>
-    <a href="/aplicacion/pruebas/sintaxisBasica.php" class="prueba">Sintaxisbasica</a>
-    <br>
-    <a href="/aplicacion/pruebas/arrays.php" class="prueba">Prueba Arrays</a>
+   <a href="sintaxisBasica.php">Pruebas sintaxis básica</a><br>
+   <a href="arrays.php">Pruebas arrays</a><br>
+   <a href="fechas.php">Pruebas fechas</a><br>
+   <a href="string.php">Pruebas Cadenas</a><br>
+   <a href="funciones.php">Pruebas Funciones</a><br>
+   <a href="clases.php">Pruebas Clases</a><br>
+   <a href="formulario.php">Prueba Formulario</a><br>
+   
 <?php
-
 }
