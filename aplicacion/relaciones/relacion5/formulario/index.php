@@ -27,6 +27,8 @@ $estudios_validos = [
     5 => 'Universitarios'
 ];
 
+$estados_validos = [1 => 'Estudiante', 2 => 'En paro', 3 => 'Trabajando', 4 => 'Jubilado'];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recoger datos del POST
     $valores['nombre'] = trim($_POST['nombre'] ?? '');
@@ -77,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores['hora'] = 'Hora inválida (HH:MM:SS).';
     }
 
-    $estados_validos = [1 => 'Estudiante', 2 => 'En paro', 3 => 'Trabajando', 4 => 'Jubilado'];
+
     if (!validaRango((int)$valores['estado'], $estados_validos, 2)) {
         $errores['estado'] = 'Debe seleccionar un estado válido.';
     }
@@ -119,11 +121,11 @@ function cabecera() {}
 //Vista
 function cuerpo($valores, $errores, $estados_validos, $estudios_validos)
 {
-        //Comprovamos que no tenemos errores y comprobamos que el formulario todavia no lo hemos enviado 
+    //Comprovamos que no tenemos errores y comprobamos que el formulario todavia no lo hemos enviado 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !empty($errores)) {
         //vamos a crear el formulario y poner los errores donde saldran en el caso de que este
 ?>
-        
+
         <div class="formulario">
             <form method="post" action="">
                 <label>Nombre:</label>
@@ -150,7 +152,7 @@ function cuerpo($valores, $errores, $estados_validos, $estudios_validos)
 
                 <label>Estado:</label><br>
                 <?php
-                $estados = [1 => 'Estudiante', 2 => 'En paro', 3 => 'Trabajando', 4 => 'Jubilado'];
+                $estados = [1 => 'Estudiante', 2 => 'En paro', 3 => 'Trabajando', 4 => 'Jubilado', 5 => 'Incorrecta'];
                 foreach ($estados as $k => $v) {
                     $checked = ($valores['estado'] == $k) ? 'checked' : '';
                     echo "<input type='radio' name='estado' value='$k' $checked> $v<br>";
@@ -181,14 +183,16 @@ function cuerpo($valores, $errores, $estados_validos, $estudios_validos)
         </div>
 <?php
     } else {
+        //si lo tenemos todo bien no volvemos a mostrar el formulario y mostramos un resumen con los datos
 
-        echo "<h3>Datos introducidos correctamente:</h3>";
+        echo "<h3>Datos introducidos correctamente {$valores['nombre']}:</h3>";
         echo "<ul>";
         echo "<li><b>Nombre:</b> {$valores['nombre']}</li>";
         echo "<li><b>Fecha nacimiento:</b> {$valores['fecha_nac']}</li>";
         echo "<li><b>Fecha carnet:</b> {$valores['dia_carnet']}/{$valores['mes_carnet']}/{$valores['ano_carnet']}</li>";
         echo "<li><b>Hora de levantarse:</b> {$valores['hora']}</li>";
         echo "<li><b>Estado:</b> {$estados_validos[$valores['estado']]}</li>";
+
         $estudios_mostrados = [];
         foreach ($valores['estudios'] as $codigo) {
             if (isset($estudios_validos[$codigo])) {
