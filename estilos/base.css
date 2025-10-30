@@ -292,3 +292,7 @@ a:focus {
     color: #333;
     font-family: Arial, sans-serif;
 }
+
+li{
+    list-style: none;
+}
