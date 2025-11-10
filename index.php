@@ -23,7 +23,6 @@ function cabecera() {}
 function cuerpo()
 {
 ?>
-    Hola estas en index.php 
 <?php
 
 }

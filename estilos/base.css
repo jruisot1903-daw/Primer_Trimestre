@@ -296,3 +296,7 @@ a:focus {
 li{
     list-style: none;
 }
+
+#imagenPuntos{
+    border: 1px solid black;
+}

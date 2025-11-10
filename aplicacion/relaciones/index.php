@@ -32,7 +32,7 @@ function cuerpo()
                             <li><a href="/aplicacion/relaciones/relacion3">Relacion3</a></li>
                             <li><a href="/aplicacion/relaciones/relacion4">Relacion4</a></li>
                             <li><a href="/aplicacion/relaciones/relacion5">Relacion5</a></li>
-                            <li><a href="/aplicacion/relaciones/realcion7">Relacion7</a></li>
+                            <li><a href="/aplicacion/relaciones/relacion7">Relacion7</a></li>
                         </ul>
                 
                 </li>
