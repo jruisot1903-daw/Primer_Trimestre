@@ -40,4 +40,8 @@ function crearImagen(array $puntos, string $rutaImagen): void {
     imagedestroy($imagen);
 }
 
-
+function obtenerNombreFichero(){
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'NO_IP';
+    $navegador = $_SERVER['HTTP_USER_AGENT'];
+    return "puntos_". str_replace(".","_",$ip) . "_" . md5($navegador) . ".dat"; // md5 genera un hash unico del navegador para que no tengamos problemas con caracteres raros
+}
