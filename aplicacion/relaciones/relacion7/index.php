@@ -41,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
     $grosorInt = (int)$grosor;
 
     // Validaciones
-    if (!validaEntero($xInt, 0, 500, -1)) {
+    if (!validaEntero($xInt, 0, 500, 0)) {
         $errores['x'] = "Debe estar entre 0 y 500";
     }
-    if (!validaEntero($yInt, 0, 500, -1)) {
+    if (!validaEntero($yInt, 0, 500, 0)) {
         $errores['y'] = "Debe estar entre 0 y 500";
     }
     if (!validaRango($color, Punto::COLORES, 2)) {
@@ -100,6 +100,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['borrar'])) {
 $rutaImagen = dirname(__FILE__) . "/../../../img/puntos/" . obtenerNombreImagen();
 $rutaWeb    = "http://www.practica1.es/img/puntos/" . obtenerNombreImagen();
 crearImagen($puntos, $rutaImagen);
+
+//Subida del fichero de puntos
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subir'])) {
+    if (isset($_FILES['ficheroTxt']) && $_FILES['ficheroTxt']['error'] === UPLOAD_ERR_OK) {
+        //Obtenemos el nombre del fichero que nos suba
+        $nombreArchivo = $_FILES['ficheroTxt']['name'];
+        //Obtenemos la extension del fichero que nos suba
+        $extension = strtolower(pathinfo($nombreArchivo, PATHINFO_EXTENSION));
+
+        if ($extension !== 'txt') { // preguntamos si la extension es txt
+            $mensaje = "Solo se permiten ficheros .txt";
+        } else { // si no es txt procesamos el fichero 
+            $rutaTmp = $_FILES['ficheroTxt']['tmp_name'];
+
+            // Leer líneas del fichero subido
+            $lineas = file($rutaTmp, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            // vamos leyendo todas las lineas del fichero mientras vamos validando los datos del fichero
+            foreach ($lineas as $linea) { 
+                list($x, $y, $color, $grosor) = explode(";", $linea); // separamos los datos por el ;
+
+                $xInt = (int)trim($x);
+                $yInt = (int)trim($y);
+                $colorTrim = trim($color);
+                $grosorInt = (int)trim($grosor);
+                // hacemos la validaciones de los datos del fichero 
+                if (validaEntero($xInt, 0, 500, 0) &&
+                    validaEntero($yInt, 0, 500, 0) &&
+                    validaRango($colorTrim, Punto::COLORES, 2) &&
+                    validaRango($grosorInt, Punto::GROSORES, 2)) {
+                    $puntos[] = new Punto($xInt, $yInt, $colorTrim, $grosorInt);
+                }
+            }
+
+            // Guardar puntos en el fichero .dat
+            $contenido = "";
+            foreach ($puntos as $p) {
+                $contenido .= $p->getX() . " ; " . $p->getY() . " ; " . $p->getColor() . " ; " . $p->getGrosor() . "\n";
+            }
+            file_put_contents($fichero, $contenido);
+
+            crearImagen($puntos, $rutaImagen);
+            $mensaje = "Fichero .txt procesado correctamente";
+        }
+    } else {
+        $mensaje = "Error al subir el fichero";
+    }
+}
+
+
 
 //VISTA 
 
@@ -157,7 +206,7 @@ function cuerpo(array $errores = [], string $mensaje = '', array $puntos = [], a
     <h3>Puntos actuales:</h3>
     <textarea rows="10" cols="50" readonly>
     <?php foreach ($puntos as $p) echo $p->__toString() . "\n"; ?>
-</textarea>
+    </textarea>
 
     <h3>Imagen creada</h3>
     <img src="<?= $rutaWeb ?>" alt="Imagen de puntos" id="imagenPuntos">
@@ -173,6 +222,13 @@ function cuerpo(array $errores = [], string $mensaje = '', array $puntos = [], a
         </select>
         <button type="submit" name="borrar">Borrar</button>
     </form>
+
+    <h3>Subir fichero de puntos</h3>
+    <form action="index.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="ficheroTxt" accept=".txt">
+        <button type="submit" name="subir">Subir fichero</button>
+    </form>
+
 
 <?php
 }
