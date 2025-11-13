@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) . "/../../../scripts/librerias/validacion.php");
 
 // CONTROLADOR 
 
-// Nombre del fichero .dat único por cliente
+// Nombre del fichero .dat 
 $fichero = __DIR__ . "/datos/" . obtenerNombreFichero();
 $puntos = [];
 
