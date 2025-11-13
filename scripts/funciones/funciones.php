@@ -42,6 +42,16 @@ function crearImagen(array $puntos, string $rutaImagen): void {
 
 function obtenerNombreFichero(){
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'NO_IP';
-    $navegador = $_SERVER['HTTP_USER_AGENT'];
-    return "puntos_". str_replace(".","_",$ip) . "_" . md5($navegador) . ".dat"; // md5 genera un hash unico del navegador para que no tengamos problemas con caracteres raros
+     $navegador = strtolower($_SERVER['HTTP_USER_AGENT'] ?? 'desconocido');
+    if (mb_strpos($navegador, 'chrome') !== false) {
+        $nav = 'chrome';
+    } elseif (mb_strpos($navegador, 'firefox') !== false) {
+        $nav = 'firefox';
+    } elseif (mb_strpos($navegador, 'safari') !== false) {
+        $nav = 'safari';
+    } else {
+        $nav = 'otro';
+    }
+
+    return "puntos_". str_replace(".","_",$ip) . "_" . $navegador . ".dat"; // md5 genera un hash unico del navegador para que no tengamos problemas con caracteres raros
 }

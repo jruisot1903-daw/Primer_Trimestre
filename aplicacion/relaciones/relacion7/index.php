@@ -2,12 +2,12 @@
 include_once(dirname(__FILE__) . "/../../../cabecera.php");
 include_once(dirname(__FILE__) . "/../../../scripts/clases/Punto.php");
 require_once(dirname(__FILE__) . "/../../../scripts/librerias/validacion.php");
-require_once(dirname(__FILE__) . "/../../../scripts/funciones/funciones.php");
+//require_once(dirname(__FILE__) . "/../../../scripts/funciones/funciones.php");
 
 // CONTROLADOR 
 
 // Nombre del fichero .dat único por cliente
-$fichero = __DIR__ . "/datos/" . obtenerNombreFichero(); 
+$fichero = __DIR__ . "/datos/" . obtenerNombreFichero();
 $puntos = [];
 
 // Leer puntos desde el fichero si existe
@@ -22,7 +22,7 @@ if (file_exists($fichero)) {
 //Inicializamos las variables
 $errores = [];
 $mensaje = '';
-$datos = [ 
+$datos = [
     'x' => $_POST['x'] ?? '',
     'y' => $_POST['y'] ?? '',
     'color' => $_POST['color'] ?? '',
@@ -74,6 +74,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['guardar'])) {
     }
 }
 
+//Borrar puntos de la imagen 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['borrar'])) {
+    $indice = $_POST['puntoSeleccionado'] ?? null;
+
+    if ($indice !== null && isset($puntos[$indice])) {
+        // Eliminar el punto del array
+        unset($puntos[$indice]);
+
+        // Volvemos a guardar el array reindzado para no tener huecos libres
+        $puntos = array_values($puntos);
+
+        // Guardar de nuevo el fichero sin ese punto
+        $contenido = "";
+        foreach ($puntos as $p) {
+            $contenido .= $p->getX() . " ; " . $p->getY() . " ; " . $p->getColor() . " ; " . $p->getGrosor() . "\n";
+        }
+        file_put_contents($fichero, $contenido); // Sobrescribimos el fichero
+
+        $mensaje = "Punto borrado correctamente";
+    }
+}
+
 // Generar la imagen con todos los puntos
 $rutaImagen = dirname(__FILE__) . "/../../../img/puntos/" . obtenerNombreImagen();
 $rutaWeb    = "http://www.practica1.es/img/puntos/" . obtenerNombreImagen();
@@ -94,46 +116,63 @@ function cabecera() {}
 function cuerpo(array $errores = [], string $mensaje = '', array $puntos = [], array $datos = [], string $rutaWeb = '')
 {
 ?>
-   <form action="index.php" method="post">
-    <label for="x">Coordenada x:</label>
-    <input type="number" name="x" id="x" value="<?= $datos['x'] ?? '' ?>">
-    <span style="color:red"><?= $errores['x'] ?? '' ?></span>
+    <form action="index.php" method="post">
+        <label for="x">Coordenada x:</label>
+        <input type="number" name="x" id="x" value="<?= $datos['x'] ?? '' ?>">
+        <span style="color:red"><?= $errores['x'] ?? '' ?></span>
 
-    <label for="y">Coordenada y:</label>
-    <input type="number" name="y" id="y" value="<?= $datos['y'] ?? '' ?>">
-    <span style="color:red"><?= $errores['y'] ?? '' ?></span>
+        <label for="y">Coordenada y:</label>
+        <input type="number" name="y" id="y" value="<?= $datos['y'] ?? '' ?>">
+        <span style="color:red"><?= $errores['y'] ?? '' ?></span>
 
-    <label for="color">Color:</label>
-    <select name="color" id="color">
-        <?php foreach (Punto::COLORES as $clave => $info): ?>
-            <option value="<?= $clave ?>" <?= (isset($datos['color']) && $datos['color'] === $clave) ? 'selected' : '' ?>>
-                <?= $info['nombre'] ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <span style="color:red"><?= $errores['color'] ?? '' ?></span>
+        <label for="color">Color:</label>
+        <select name="color" id="color">
+            <?php foreach (Punto::COLORES as $clave => $info) { ?>
+                <option value="<?= $clave ?>" <?= (isset($datos['color']) && $datos['color'] === $clave) ? 'selected' : '' ?>>
+                    <?= $info['nombre'] ?>
+                </option>
+            <?php } ?>
+        </select>
+        <span style="color:red"><?= $errores['color'] ?? '' ?></span>
 
-    <fieldset>
-        <legend>Grosor:</legend>
-        <?php foreach (Punto::GROSORES as $clave => $nombre): ?>
-            <label>
-                <input type="radio" name="grosor" value="<?= $clave ?>" <?= (isset($datos['grosor']) && $datos['grosor'] == $clave) ? 'checked' : '' ?>>
-                <?= $nombre ?>
-            </label>
-        <?php endforeach; ?>
-        <span style="color:red"><?= $errores['grosor'] ?? '' ?></span>
-    </fieldset>
+        <fieldset>
+            <legend>Grosor:</legend>
+            <?php foreach (Punto::GROSORES as $clave => $nombre) { ?>
+                <label>
+                    <input type="radio" name="grosor" value="<?= $clave ?>" <?= (isset($datos['grosor']) && $datos['grosor'] == $clave) ? 'checked' : '' ?>>
+                    <?= $nombre ?>
+                </label>
+            <?php } ?>
+            <span style="color:red"><?= $errores['grosor'] ?? '' ?></span>
+        </fieldset>
 
-    <button type="submit" name="guardar">Guardar</button>
-</form>
+        <button type="submit" name="guardar">Guardar</button>
+        <a href="imagen.php">
+            <button type="button">Descargar imagen</button>
+        </a>
+    </form>
 
-<h3>Puntos actuales:</h3>
-<textarea rows="10" cols="50" readonly> 
+
+
+    <h3>Puntos actuales:</h3>
+    <textarea rows="10" cols="50" readonly>
     <?php foreach ($puntos as $p) echo $p->__toString() . "\n"; ?>
 </textarea>
 
-<h3>Imagen creada</h3>
-<img src="<?= $rutaWeb ?>" alt="Imagen de puntos" id="imagenPuntos">
+    <h3>Imagen creada</h3>
+    <img src="<?= $rutaWeb ?>" alt="Imagen de puntos" id="imagenPuntos">
+    <br>
+    <h3>Borrar Puntos</h3>
+    <form action="index.php" method="post">
+        <select name="puntoSeleccionado" id="puntos">
+            <?php foreach ($puntos as $i => $p) { ?>
+                <option value="<?= $i ?>">
+                    <?= $p->__toString() ?>
+                </option>
+            <?php } ?>
+        </select>
+        <button type="submit" name="borrar">Borrar</button>
+    </form>
 
 <?php
 }
