@@ -97,8 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['borrar'])) {
 }
 
 // Generar la imagen con todos los puntos
-$rutaImagen = dirname(__FILE__) . "/../../../img/puntos/" . obtenerNombreImagen();
-$rutaWeb    = "http://www.practica1.es/img/puntos/" . obtenerNombreImagen();
+$nombreImagen = obtenerNombreImagen();
+$rutaImagen = __DIR__. "/../../../img/puntos/" . $nombreImagen;
+$rutaWeb    = "../../../img/puntos/" . $nombreImagen;
 crearImagen($puntos, $rutaImagen);
 
 //Subida del fichero de puntos
