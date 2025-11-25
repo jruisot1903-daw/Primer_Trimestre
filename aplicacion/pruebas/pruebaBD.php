@@ -71,7 +71,11 @@ if (isset($_GET["oper"]) && $_GET["oper"] == 1) {
 
     // para cadenas usamos la funcion de escape correspondiente de la base de datos
     $cadena = "esta'esto es el ataque '";
+    $cadena = $bd->real_escape_string($cadena); // con esto nos aseguramos en que no nos inyecte codigo
 
+    //Se puede evitar el atque con consultas parametrizadas
+
+    
 
     $sentencia = 'update prueba1 set' .
                  '       numero=2000' .
