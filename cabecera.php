@@ -21,7 +21,12 @@ spl_autoload_register(function ($clase) {
 });
 
 include(RUTABASE . "/aplicacion/plantilla/plantilla.php");
-//include(RUTABASE . "/aplicacion/config/acceso_bd.php");
+include(RUTABASE . "/aplicacion/config/acceso_bd.php");
+
+
+// gestión bd
+
+mysqli_report(MYSQLI_REPORT_ERROR); // paraque no nos lance exepcciones y no se pare la ejecución
 
  //creo todos los objetos que necesita mi aplicación
 

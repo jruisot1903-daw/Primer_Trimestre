@@ -29,7 +29,8 @@ function cuerpo()
    <a href="funciones.php">Pruebas Funciones</a><br>
    <a href="clases.php">Pruebas Clases</a><br>
    <a href="formulario.php">Prueba Formulario</a><br>
-   <a href="cookies_session.php">Prueba Cookies/Sesiones</a>
+   <a href="cookies_session.php">Prueba Cookies/Sesiones</a><br>
+   <a href="pruebaBD.php">Prueba Base de Datos</a>
    
 <?php
 }
